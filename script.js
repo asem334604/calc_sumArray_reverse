@@ -50,6 +50,11 @@ function addItem() {
     sumField.textContent = sum;
     arrField.textContent = JSON.parse(JSON.stringify(storage));
 }
+function clearStorage() {
+    storage.length = 0;
+    sumField.textContent = 0;
+    arrField.textContent = JSON.parse(JSON.stringify(storage));
+}
 
 // 3 - reverse number
 const inputNum = document.getElementById('number_input');
@@ -57,7 +62,7 @@ const reverseField = document.getElementById('reverse_result');
 
 function mathReverse(num) {
     let rev = 0;
-    while (num!=0){
+    while (num!==0){
         rev = rev*10+num%10;
         num = Math.floor(num/10);
     }
