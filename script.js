@@ -62,16 +62,16 @@ const inputNum = document.getElementById('number_input');
 const reverseField = document.getElementById('reverse_result');
 
 function mathReverse(num) {
-    let rev = 0, flag = false;
+    let rev = 0, isNegative = false;
     if ((+num) < 0) {
-        flag = true;
+        isNegative = true;
         num = Math.abs(num);
     }
     while (num !== 0) {
         rev = rev * 10 + num % 10;
         num = Math.floor(num / 10);
     }
-    if (flag) {
+    if (isNegative) {
         rev *= (-1);
     }
     return rev;
@@ -83,11 +83,10 @@ function reverseNumber1() {
 }
 
 function reverseNumber2() {
-    if (!isNumber(inputNum.value)){
+    if (!isNumber(inputNum.value)) {
         return reverseField.textContent = 'Enter a number';
     }
-    console.log(inputNum.value.split('').slice(1).reverse().unshift("-"))
     reverseField.textContent = (+inputNum.value) < 0 ?
-        (inputNum.value.split('').slice(1).reverse().join(''))*(-1):
+        (inputNum.value.split('').slice(1).reverse().join('')) * (-1) :
         inputNum.value.split('').reverse().join('');
 }
