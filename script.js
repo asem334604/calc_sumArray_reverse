@@ -5,6 +5,9 @@ const opt = document.querySelectorAll("option");
 const resField = document.getElementById('res_calc');
 
 function calc() {
+    if (inputCalc1.value === '' || inputCalc2.value === ''){
+        return resField.textContent = 'Enter a number';
+    }
     let res, operator;
     const a = +inputCalc1.value, b = +inputCalc2.value;
     for (let i in opt) {
@@ -69,7 +72,7 @@ function mathReverse(num) {
     }
     while (num !== 0) {
         rev = rev * 10 + num % 10;
-        num = Math.floor(num / 10);
+        num = Math.trunc(num / 10);
     }
     if (isNegative) {
         rev *= (-1);
